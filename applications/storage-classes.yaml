@@ -1,0 +1,18 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: stroage-classes
+  namespace: argocd # This should be the namespace where Argo CD is installed
+spec:
+  project: default # The Argo CD Project to which the app belongs
+  source:
+    repoURL: https://github.com/somayya98/eks-argocd.git
+    targetRevision: main # The branch, tag, or commit to sync to (HEAD for the default branch)
+    path: stroage-classes # The path within the repository that contains the K8s manifests
+  destination:
+    server: https://kubernetes.default.svc # The URL of the destination cluster API server
+    namespace: guestbook
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
