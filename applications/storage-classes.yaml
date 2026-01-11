@@ -11,7 +11,7 @@ spec:
     path: stroage-classes # The path within the repository that contains the K8s manifests
   destination:
     server: https://kubernetes.default.svc # The URL of the destination cluster API server
-    namespace: guestbook
+    namespace: argocd
   syncPolicy:
     automated:
       prune: true
