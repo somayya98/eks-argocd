@@ -1,14 +1,14 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: platform-root
+  name: namespace
   namespace: argocd # This must match the namespace where Argo CD is installed
 spec:
   project: default
   source:
     repoURL: https://github.com/somayya98/eks-argocd.git
     targetRevision: main # Specifies the branch, tag, or commit to sync to
-    path: applications
+    path: namespaces
   destination:
     server: https://kubernetes.default.svc # Current Cluster
     namespace: argocd
